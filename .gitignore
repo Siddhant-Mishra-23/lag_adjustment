@@ -6,3 +6,8 @@ regridding.ipynb
 prediction_new.py 
 /catboost_info
 /__pycache__
+/output/Json
+/output/plots
+/output/Testing Metadata
+/output/Training Metadata
+**.pkl
