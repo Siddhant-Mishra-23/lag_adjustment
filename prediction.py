@@ -137,7 +137,6 @@ def get_cv_splits(df, cv_type):
 def _safe_name(name):
     return "".join(ch if ch.isalnum() or ch in ("_", "-") else "_" for ch in str(name))
 
-
 def _best_fold_index(folds, metric):
     if not folds:
         raise ValueError("No fold metrics found.")
@@ -150,7 +149,6 @@ def _best_fold_index(folds, metric):
     if metric == "bias":
         return int(np.nanargmin(np.abs(values)))
     return int(np.nanargmin(values))
-
 
 def save_model_outputs(mname, cv_type, folds, predictions, error_metric="rmse"):
     """Save best-fold train/valid parquet for one model right after training."""
@@ -487,7 +485,7 @@ if __name__ == "__main__":
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     os.makedirs(OUTPUT_DIR_Model, exist_ok=True)
     SEED = 42
-    FEAT = ["sm_4_prior", "sm_3_prior", "sm_2_prior", "sm_1_prior", "sum_rainfall_4", "sum_rainfall_3", "sum_rainfall_2", "sum_rainfall_1", "mean_temp_4", "mean_temp_3", "mean_temp_2", "mean_temp_1", "doy_sin", "doy_cos"]
+    FEAT = ["sm_4_prior", "sum_rainfall_4", "sum_rainfall_3", "sum_rainfall_2", "sum_rainfall_1", "mean_temp_4", "mean_temp_3", "mean_temp_2", "mean_temp_1", "doy_sin", "doy_cos"]
     TARGET = "soil_moisture"
     models = get_model()
     df = prepare_dataframe()
